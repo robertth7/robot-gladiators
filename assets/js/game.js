@@ -111,7 +111,7 @@ var startGame = function() {
     endGame();
 
     // play again
-    startGame();
+    //startGame();
 };
 
 // function to end the entire game
@@ -133,7 +133,7 @@ var endGame = function() {
     }
     else {
         window.alert("Thank you for playing Robot Gladiators! Come back soon!");
-        endGame();
+        //endGame();
         // I feel like i need a break here because it just loops...
     }
 };
@@ -146,7 +146,7 @@ var shop = function() {
     switch (shopOptionPrompt) {
         case "REFILL": 
         case "refill":
-            playerInfo.refillHealth();
+            playerInfo.refillHeatlh();
             break;
         case "UPGRADE":
         case "upgrade":
@@ -174,8 +174,20 @@ var randomNumber = function(min, max) {
     return value;
 };
 
+// function to set name
+var getPlayerName = function() {
+    var name = "";
+
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?");
+    }
+
+    console.log("Your robot's name is " + name);
+    return name;
+};
+
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10, 
